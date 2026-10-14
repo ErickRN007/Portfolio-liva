@@ -2,18 +2,19 @@
    PORTFOLIO LIVA MARIO — V4
    ---------------------------------------------------------
    POUR PERSONNALISER :
-   1. Modifiez le tableau PROJECTS juste en dessous
-      (titres, textes, noms des fichiers photos / vidéo).
+  1. Modifiez CITY_PROJECTS juste en dessous
+    (villes, informations des projets et médias).
    2. Déposez vos fichiers dans assets/photos/ et assets/videos/
       avec EXACTEMENT les noms indiqués.
    ========================================================= */
 
-const PROJECTS = [
+const CITY_PROJECTS = [
   {
     id: 1, code: 'P-01', sheet: 'A-02.1',
     title: 'Projet Manakara',
     tagline: 'Habitation à étage — modélisation 3D & visite virtuelle',
     place: 'Manakara',
+    type: 'Habitation — R+1 · modélisation 3D',
     desc: "Modélisation d'une habitation à étage et rendu réaliste sous Lumion pour une visite virtuelle du projet avant construction : volumes, façades, aménagements extérieurs et ambiance du site.",
     meta: [
       ['LIEU', 'Manakara, Madagascar'],
@@ -22,7 +23,10 @@ const PROJECTS = [
       ['MISSION', 'Modélisation & rendu 3D']
     ],
     cover: 'assets/photos/1 (1).png',
-    video: { file: 'assets/videos/projet-manakara.mp4', poster: 'assets/photos/1 (1).png', label: 'Visite virtuelle du projet' },
+    videos: [
+      { file: 'assets/videos/projet-manakara.mp4', poster: 'assets/photos/1 (1).png', title: 'Maison à étage à Manakara — visite virtuelle', description: 'Présentation des volumes et des façades de l’habitation à étage.' },
+      { file: 'assets/videos/projet-manakara-2.mp4', poster: 'assets/photos/1 (2).png', title: 'Maison à étage à Manakara — aménagement extérieur', description: 'Découverte du jardin et de l’ambiance extérieure autour de la maison.' }
+    ],
     photos: [
       { file: 'assets/photos/1 (1).png', label: 'Façade principale' },
       { file: 'assets/photos/1 (2).png', label: 'Vue sur le jardin' },
@@ -32,26 +36,56 @@ const PROJECTS = [
   },
   {
     id: 2, code: 'P-02', sheet: 'A-02.2',
-    title: 'Suite du projet Manakara',
+    title: 'Projet Fort-Dauphin',
     tagline: 'Contrôle qualité, sécurité et avancement des travaux',
-    place: 'Madagascar',
+    place: 'Fort-Dauphin',
+    type: 'Chantier — gros œuvre',
     desc: "Pilotage de chantier au quotidien : lecture des plans, contrôle de la qualité d'exécution, encadrement des équipes et suivi de l'avancement, avec un taux de conformité de 95 % aux normes applicables.",
     meta: [
-      ['LIEU', 'Madagascar'],
+      ['LIEU', 'Fort-Dauphin, Madagascar'],
       ['TYPOLOGIE', 'Bâtiment — gros œuvre'],
       ['ENTREPRISE', 'Ma-Variana'],
       ['MISSION', 'Chef de chantier']
     ],
     cover: 'assets/photos/1 (6).png',
-    video: { file: 'assets/videos/projet-manakara-2.mp4', poster: 'assets/photos/1 (6).png', label: 'Suivi qualité sur site' },
+    videos: [
+      { file: 'assets/videos/projet-fortdauphin.mp4', poster: 'assets/photos/1 (6).png', title: 'Suivi de chantier à Fort-Dauphin — avancement des travaux', description: 'Suivi de l’avancement des travaux et de l’organisation du chantier.' },
+      { file: 'assets/videos/projet-fortdauphin-2.mp4', poster: 'assets/photos/1 (7).png', title: 'Chantier à Fort-Dauphin — contrôle qualité', description: 'Contrôle de l’exécution des travaux et de leur conformité.' }
+    ],
     photos: [
       { file: 'assets/photos/1 (6).png', label: 'Vue générale du chantier' },
       { file: 'assets/photos/1 (7).png', label: 'Contrôle qualité' },
       { file: 'assets/photos/1 (8).png', label: 'Équipe sur site' },
       { file: 'assets/photos/1 (9).png', label: 'Lecture de plans' }
     ]
+  },
+  {
+    id: 3, code: 'P-03', sheet: 'A-02.3',
+    title: 'Projet Bekily',
+    tagline: 'Habitation à étage — modélisation 3D & visite virtuelle',
+    place: 'Bekily',
+    type: 'Habitation — R+1 · modélisation 3D',
+    desc: "Modélisation d'une habitation à étage et rendu réaliste sous Lumion pour une visite virtuelle du projet avant construction : volumes, façades, aménagements extérieurs et ambiance du site.",
+    meta: [
+      ['LIEU', 'Bekily, Madagascar'],
+      ['TYPOLOGIE', 'Bâtiment — R+1'],
+      ['OUTILS', 'ArchiCAD · Lumion'],
+      ['MISSION', 'Modélisation & rendu 3D']
+    ],
+    cover: 'assets/photos/1 (1).png',
+    videos: [
+      { file: 'assets/videos/projet-bekily.mp4', poster: 'assets/photos/1 (1).png', title: 'Habitation à Bekily — visite virtuelle', description: 'Présentation 3D de l’habitation à étage avant sa construction.' }
+    ],
+    photos: [
+      { file: 'assets/photos/1 (1).png', label: 'Façade principale' },
+      { file: 'assets/photos/1 (2).png', label: 'Vue sur le jardin' },
+      { file: 'assets/photos/1 (4).png', label: 'Plan de masse' },
+      { file: 'assets/photos/1 (5).png', label: 'Ambiance extérieure' }
+    ]
   }
 ];
+
+const PROJECTS = CITY_PROJECTS;
 
 const TOOLS = [
   { k: 'CAD', n: 'AutoCAD', s: 'Dessin et mise à jour de plans', c: 'sw-cad' },
@@ -173,20 +207,33 @@ const TOOLS = [
   });
 
   /* ---------- cartes projets ---------- */
-  $('#cards').innerHTML = PROJECTS.map((p, i) => `
-    <a href="#/projet/${p.id}" class="card" data-id="${p.id}" data-cursor="Ouvrir" style="transition-delay:${i * .12}s" aria-label="Ouvrir le projet ${esc(p.title)}">
-      <div class="card-top mono"><span><b>${p.code}</b> · PLANCHE ${p.sheet}</span><span>${esc(p.place.toUpperCase())}</span></div>
-      <div class="card-img">
-        <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
-        <img src="${esc(p.cover)}" alt="" loading="lazy">
-        <div class="ghost mono"><b>${p.code}</b>${esc(p.cover)}</div>
-        <div class="card-badges mono"><span>▶ 1 VIDÉO</span><span>${p.photos.length} PHOTOS</span></div>
-      </div>
-      <div class="card-body">
-        <h3>${esc(p.title)}</h3><p>${esc(p.tagline)}</p>
-        <div class="card-go mono"><span>OUVRIR LA PLANCHE</span><span class="arr">→</span></div>
-      </div>
-    </a>`).join('');
+  const cities = [...new Set(PROJECTS.map(p => p.place))];
+  $('#cards').innerHTML = cities.map((city, cityIndex) => {
+    const projects = PROJECTS.filter(p => p.place === city);
+    return `
+      <section class="city-group">
+        <header class="city-heading">
+          <span class="city-index mono">SECTEUR · ${pad(cityIndex + 1)}</span>
+          <h3>${esc(city)}</h3>
+          <p class="mono">${projects.length} PROJET${projects.length > 1 ? 'S' : ''}</p>
+        </header>
+        <div class="cards">${projects.map((p, i) => `
+          <a href="#/projet/${p.id}" class="card" data-id="${p.id}" data-cursor="Ouvrir" style="transition-delay:${i * .12}s" aria-label="Ouvrir le projet ${esc(p.title)}">
+            <div class="card-top mono"><span><b>${p.code}</b> · PLANCHE ${p.sheet}</span><span>${esc(p.type)}</span></div>
+            <div class="card-img">
+              <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
+              <img src="${esc(p.cover)}" alt="" loading="lazy">
+              <div class="ghost mono"><b>${p.code}</b>${esc(p.cover)}</div>
+              <div class="card-badges mono"><span>▶ ${p.videos.length} VIDÉO${p.videos.length > 1 ? 'S' : ''}</span><span>${p.photos.length} PHOTOS</span></div>
+            </div>
+            <div class="card-body">
+              <h3>${esc(p.title)}</h3><p>${esc(p.tagline)}</p>
+              <div class="card-go mono"><span>OUVRIR LA PLANCHE</span><span class="arr">→</span></div>
+            </div>
+          </a>`).join('')}
+        </div>
+      </section>`;
+  }).join('');
   $$('.card-img img').forEach(img => {
     const miss = () => img.parentNode.classList.add('missing');
     img.addEventListener('error', miss); if (img.complete && !img.naturalWidth) miss();
@@ -274,20 +321,24 @@ const TOOLS = [
     </div>
     <p class="pv-desc pv-a" style="--i:5">${esc(p.desc)}</p>
 
+    ${p.videos.map((video, i) => `
     <div class="vid rv2">
-      <div class="pv-label mono">01 — VIDÉO</div>
-      <div class="vid-frame ${p.video.poster ? '' : 'noposter'}" data-cursor="Lire">
+      <div class="pv-label mono">${pad(i + 1)} — VIDÉO</div>
+      <div class="vid-frame ${video.poster ? '' : 'noposter'}" data-cursor="Lire">
         <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
-        ${p.video.poster ? `<img class="vid-poster" src="${esc(p.video.poster)}" alt="">` : ''}
-        <video preload="metadata" playsinline src="${esc(p.video.file)}"></video>
-        <div class="nofile mono">Déposez votre vidéo ici :<br>${esc(p.video.file)}</div>
+        ${video.poster ? `<img class="vid-poster" src="${esc(video.poster)}" alt="">` : ''}
+        <video preload="metadata" playsinline src="${esc(video.file)}"></video>
+        <div class="nofile mono">Déposez votre vidéo ici :<br>${esc(video.file)}</div>
         <span class="nofile-pill mono">VIDÉO À AJOUTER</span>
         <button class="vid-play" aria-label="Lire la vidéo">▶</button>
-        <div class="tag mono"><b>VIDÉO</b> — ${esc(p.video.label)}</div>
       </div>
-    </div>
+      <div class="vid-caption">
+        <h3>${esc(video.title)}</h3>
+        <p>${esc(video.description)}</p>
+      </div>
+    </div>`).join('')}
 
-    <div class="pv-label mono rv2">02 — PHOTOS · ${p.photos.length} VUES</div>
+    <div class="pv-label mono rv2">${pad(p.videos.length + 1)} — PHOTOS · ${p.photos.length} VUES</div>
     <div class="photos">${p.photos.map(photoHTML).join('')}</div>
 
     <a class="pv-next rv2" href="#/projet/${next.id}" data-next="${next.id}">
@@ -305,13 +356,15 @@ const TOOLS = [
     splitNode($('.pv-title', pvBody), { i: 0 });
 
     // vidéo
-    const frame = $('.vid-frame', pvBody), video = $('video', frame), poster = $('.vid-poster', frame), btn = $('.vid-play', frame);
-    const missing = () => frame.classList.add('missing');
-    video.addEventListener('error', missing);
-    if (poster) poster.addEventListener('error', () => { poster.classList.add('gone'); frame.classList.add('noposter'); });
-    const play = () => { if (frame.classList.contains('missing') || frame.classList.contains('playing')) return; frame.classList.add('playing'); video.controls = true; video.play().catch(() => {}); };
-    btn.addEventListener('click', e => { e.stopPropagation(); play(); });
-    frame.addEventListener('click', play);
+    $$('.vid-frame', pvBody).forEach(frame => {
+      const video = $('video', frame), poster = $('.vid-poster', frame), btn = $('.vid-play', frame);
+      const missing = () => frame.classList.add('missing');
+      video.addEventListener('error', missing);
+      if (poster) poster.addEventListener('error', () => { poster.classList.add('gone'); frame.classList.add('noposter'); });
+      const play = () => { if (frame.classList.contains('missing') || frame.classList.contains('playing')) return; frame.classList.add('playing'); video.controls = true; video.play().catch(() => {}); };
+      btn.addEventListener('click', e => { e.stopPropagation(); play(); });
+      frame.addEventListener('click', play);
+    });
 
     // photos
     $$('.ph', pvBody).forEach((fig, i) => {
