@@ -5,7 +5,8 @@
   1. Modifiez CITY_PROJECTS juste en dessous
     (villes, informations des projets et médias).
    2. Déposez vos fichiers dans assets/photos/ et assets/videos/
-      avec EXACTEMENT les noms indiqués.
+      avec EXACTEMENT les noms indiqués. Pour les vidéos hébergées sur
+      Google Drive, utilisez la propriété embed avec une URL /preview.
    ========================================================= */
 
 const CITY_PROJECTS = [
@@ -24,63 +25,20 @@ const CITY_PROJECTS = [
     ],
     cover: 'assets/photos/1 (1).png',
     videos: [
-      { file: 'assets/videos/projet-manakara.mp4', poster: 'assets/photos/1 (1).png', title: 'Maison à étage à Manakara — visite virtuelle', description: 'Présentation des volumes et des façades de l’habitation à étage.' },
-      { file: 'assets/videos/projet-manakara-2.mp4', poster: 'assets/photos/1 (2).png', title: 'Maison à étage à Manakara — aménagement extérieur', description: 'Découverte du jardin et de l’ambiance extérieure autour de la maison.' }
+      { category: 'EXTÉRIEURS', file: 'assets/videos/projet-manakara.mp4', poster: 'assets/photos/1 (1).png', title: 'Maison à étage à Manakara — visite virtuelle', description: 'Présentation des volumes et des façades de l’habitation à étage.' },
+      { category: 'EXTÉRIEURS', embed: 'https://drive.google.com/file/d/1wSk8Uvxhgcx-mPomFSQfcj67AJRSpoct/preview', poster: 'assets/photos/1 (2).png', title: 'Maison à étage à Manakara — aménagement extérieur', description: 'Découverte du jardin et de l’ambiance extérieure autour de la maison.' },
+      { category: 'INTÉRIEURS', file: 'assets/videos/projet-manakara interieur01.mp4', poster: 'assets/photos/1 (3).png', title: 'Visite intérieure — séquence 01', description: 'Découverte des espaces intérieurs de l’habitation.' },
+      { category: 'INTÉRIEURS', embed: 'https://drive.google.com/file/d/18AU184f5-i2SgumlDibKumN5CKP5mF3w/preview', poster: 'assets/photos/1 (3).png', title: 'Visite intérieure — séquence 02', description: 'Suite de la visite des espaces intérieurs de l’habitation.' }
     ],
     photos: [
       { file: 'assets/photos/1 (1).png', label: 'Façade principale' },
       { file: 'assets/photos/1 (2).png', label: 'Vue sur le jardin' },
       { file: 'assets/photos/1 (4).png', label: 'Plan de masse' },
       { file: 'assets/photos/1 (5).png', label: 'Ambiance extérieure' }
-    ]
-  },
-  {
-    id: 2, code: 'P-02', sheet: 'A-02.2',
-    title: 'Projet Fort-Dauphin',
-    tagline: 'Contrôle qualité, sécurité et avancement des travaux',
-    place: 'Fort-Dauphin',
-    type: 'Chantier — gros œuvre',
-    desc: "Pilotage de chantier au quotidien : lecture des plans, contrôle de la qualité d'exécution, encadrement des équipes et suivi de l'avancement, avec un taux de conformité de 95 % aux normes applicables.",
-    meta: [
-      ['LIEU', 'Fort-Dauphin, Madagascar'],
-      ['TYPOLOGIE', 'Bâtiment — gros œuvre'],
-      ['ENTREPRISE', 'Ma-Variana'],
-      ['MISSION', 'Chef de chantier']
     ],
-    cover: 'assets/photos/1 (6).png',
-    videos: [
-      { file: 'assets/videos/projet-fortdauphin.mp4', poster: 'assets/photos/1 (6).png', title: 'Suivi de chantier à Fort-Dauphin — avancement des travaux', description: 'Suivi de l’avancement des travaux et de l’organisation du chantier.' },
-      { file: 'assets/videos/projet-fortdauphin-2.mp4', poster: 'assets/photos/1 (7).png', title: 'Chantier à Fort-Dauphin — contrôle qualité', description: 'Contrôle de l’exécution des travaux et de leur conformité.' }
-    ],
-    photos: [
-      { file: 'assets/photos/1 (6).png', label: 'Vue générale du chantier' },
-      { file: 'assets/photos/1 (7).png', label: 'Contrôle qualité' },
-      { file: 'assets/photos/1 (8).png', label: 'Équipe sur site' },
-      { file: 'assets/photos/1 (9).png', label: 'Lecture de plans' }
-    ]
-  },
-  {
-    id: 3, code: 'P-03', sheet: 'A-02.3',
-    title: 'Projet Bekily',
-    tagline: 'Habitation à étage — modélisation 3D & visite virtuelle',
-    place: 'Bekily',
-    type: 'Habitation — R+1 · modélisation 3D',
-    desc: "Modélisation d'une habitation à étage et rendu réaliste sous Lumion pour une visite virtuelle du projet avant construction : volumes, façades, aménagements extérieurs et ambiance du site.",
-    meta: [
-      ['LIEU', 'Bekily, Madagascar'],
-      ['TYPOLOGIE', 'Bâtiment — R+1'],
-      ['OUTILS', 'ArchiCAD · Lumion'],
-      ['MISSION', 'Modélisation & rendu 3D']
-    ],
-    cover: 'assets/photos/1 (1).png',
-    videos: [
-      { file: 'assets/videos/projet-bekily.mp4', poster: 'assets/photos/1 (1).png', title: 'Habitation à Bekily — visite virtuelle', description: 'Présentation 3D de l’habitation à étage avant sa construction.' }
-    ],
-    photos: [
-      { file: 'assets/photos/1 (1).png', label: 'Façade principale' },
-      { file: 'assets/photos/1 (2).png', label: 'Vue sur le jardin' },
-      { file: 'assets/photos/1 (4).png', label: 'Plan de masse' },
-      { file: 'assets/photos/1 (5).png', label: 'Ambiance extérieure' }
+    plans: [
+      { file: 'TRANO MANAKARA RDC.pdf', title: 'Plan du rez-de-chaussée (RDC)' },
+      { file: 'TRANO MANAKARA ETAGE.pdf', title: 'Plan de l’étage' }
     ]
   }
 ];
@@ -222,9 +180,14 @@ const TOOLS = [
             <div class="card-top mono"><span><b>${p.code}</b> · PLANCHE ${p.sheet}</span><span>${esc(p.type)}</span></div>
             <div class="card-img">
               <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
-              <img src="${esc(p.cover)}" alt="" loading="lazy">
-              <div class="ghost mono"><b>${p.code}</b>${esc(p.cover)}</div>
-              <div class="card-badges mono"><span>▶ ${p.videos.length} VIDÉO${p.videos.length > 1 ? 'S' : ''}</span><span>${p.photos.length} PHOTOS</span></div>
+              <div class="video-preview-grid" aria-hidden="true">${p.videos.slice(0, 4).map((video, videoIndex) => `
+                <div class="video-preview">
+                  <img src="${esc(video.poster || p.cover)}" alt="" loading="lazy">
+                  <span class="video-preview-category mono">${esc(video.category || `VIDÉO ${pad(videoIndex + 1)}`)}</span>
+                  <span class="video-preview-play">▶</span>
+                </div>`).join('')}</div>
+              ${p.videos.length > 4 ? `<span class="video-preview-more mono">+${p.videos.length - 4} VIDÉOS</span>` : ''}
+              <div class="card-badges mono"><span>▶ ${p.videos.length} VIDÉO${p.videos.length > 1 ? 'S' : ''}</span><span>${p.photos.length} PHOTOS</span>${p.plans && p.plans.length ? `<span>${p.plans.length} PLANS</span>` : ''}</div>
             </div>
             <div class="card-body">
               <h3>${esc(p.title)}</h3><p>${esc(p.tagline)}</p>
@@ -234,7 +197,7 @@ const TOOLS = [
         </div>
       </section>`;
   }).join('');
-  $$('.card-img img').forEach(img => {
+  $$('.video-preview img').forEach(img => {
     const miss = () => img.parentNode.classList.add('missing');
     img.addEventListener('error', miss); if (img.complete && !img.naturalWidth) miss();
   });
@@ -310,6 +273,7 @@ const TOOLS = [
 
   function viewHTML(p) {
     const idx = PROJECTS.indexOf(p), next = PROJECTS[(idx + 1) % PROJECTS.length];
+    const videoCategories = [...new Set(p.videos.map(video => video.category || 'VIDÉOS'))];
     return `
     <div class="pv-head">
       <div>
@@ -321,23 +285,39 @@ const TOOLS = [
     </div>
     <p class="pv-desc pv-a" style="--i:5">${esc(p.desc)}</p>
 
-    ${p.videos.map((video, i) => `
-    <div class="vid rv2">
-      <div class="pv-label mono">${pad(i + 1)} — VIDÉO</div>
-      <div class="vid-frame ${video.poster ? '' : 'noposter'}" data-cursor="Lire">
-        <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
-        ${video.poster ? `<img class="vid-poster" src="${esc(video.poster)}" alt="">` : ''}
-        <video preload="metadata" playsinline src="${esc(video.file)}"></video>
-        <div class="nofile mono">Déposez votre vidéo ici :<br>${esc(video.file)}</div>
-        <span class="nofile-pill mono">VIDÉO À AJOUTER</span>
-        <button class="vid-play" aria-label="Lire la vidéo">▶</button>
-      </div>
-      <div class="vid-caption">
-        <h3>${esc(video.title)}</h3>
-        <p>${esc(video.description)}</p>
-      </div>
-    </div>`).join('')}
+    ${videoCategories.map(category => `
+    <section class="video-group">
+      <div class="pv-label mono rv2">${esc(category)}</div>
+      ${p.videos.filter(video => (video.category || 'VIDÉOS') === category).map(video => `
+      <div class="vid rv2">
+        <div class="vid-frame ${video.poster ? '' : 'noposter'}" data-cursor="Lire">
+          <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
+          ${video.embed
+            ? `<iframe class="vid-embed" src="${esc(video.embed)}" title="${esc(video.title)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`
+            : `${video.poster ? `<img class="vid-poster" src="${esc(video.poster)}" alt="">` : ''}
+              <video preload="metadata" playsinline src="${esc(video.file)}"></video>
+              <div class="nofile mono">Déposez votre vidéo ici :<br>${esc(video.file)}</div>
+              <span class="nofile-pill mono">VIDÉO À AJOUTER</span>
+              <button class="vid-play" aria-label="Lire la vidéo">▶</button>`}
+        </div>
+        <div class="vid-caption">
+          <h3>${esc(video.title)}</h3>
+          <p>${esc(video.description)}</p>
+        </div>
+      </div>`).join('')}
+    </section>`).join('')}
 
+    ${p.plans && p.plans.length ? `
+    <div class="pv-label mono rv2">PLANS ARCHITECTURAUX · ${p.plans.length} FEUILLES</div>
+    <div class="plans">${p.plans.map((plan, i) => `
+      <figure class="plan rv2">
+        <div class="plan-frame">
+          <iframe src="${esc(plan.file)}#toolbar=0&navpanes=0&view=FitH" title="${esc(plan.title)}" loading="lazy"></iframe>
+        </div>
+        <figcaption><span class="mono">PLAN ${pad(i + 1)}</span><b>${esc(plan.title)}</b>
+          <a class="plan-open mono" href="${esc(plan.file)}" target="_blank" rel="noopener">OUVRIR LE PDF ↗</a>
+        </figcaption>
+      </figure>`).join('')}</div>` : ''}
     <div class="pv-label mono rv2">${pad(p.videos.length + 1)} — PHOTOS · ${p.photos.length} VUES</div>
     <div class="photos">${p.photos.map(photoHTML).join('')}</div>
 
@@ -357,7 +337,9 @@ const TOOLS = [
 
     // vidéo
     $$('.vid-frame', pvBody).forEach(frame => {
-      const video = $('video', frame), poster = $('.vid-poster', frame), btn = $('.vid-play', frame);
+      const video = $('video', frame);
+      if (!video) return;
+      const poster = $('.vid-poster', frame), btn = $('.vid-play', frame);
       const missing = () => frame.classList.add('missing');
       video.addEventListener('error', missing);
       if (poster) poster.addEventListener('error', () => { poster.classList.add('gone'); frame.classList.add('noposter'); });
